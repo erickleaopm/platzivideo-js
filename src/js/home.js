@@ -37,25 +37,48 @@ const getUserAll = new Promise(function(todoBien, todoMal) {
 //   })
 
 /** Para evaluar múltiples promesas */
-Promise.all([
-  getUser,
-  getUserAll
-])
-  .then(function(message) {
-    console.log(message)
-  })
-  .catch(function(message) {
-    console.log(message)
-  })
+// Promise.all([
+//   getUser,
+//   getUserAll
+// ])
+//   .then(function(message) {
+//     console.log(message)
+//   })
+//   .catch(function(message) {
+//     console.log(message)
+//   })
 
 /** Muestra el resultado de la primer promesa que se cumple */
-Promise.race([
-  getUser,
-  getUserAll
-])
-  .then(function(message) {
-    console.log(message)
-  })
-  .catch(function(message) {
-    console.log(message)
-  })
+// Promise.race([
+//   getUser,
+//   getUserAll
+// ])
+//   .then(function(message) {
+//     console.log(message)
+//   })
+//   .catch(function(message) {
+//     console.log(message)
+//   })
+
+$.ajax('https://randomuser.me/api/dsajhdahk', {
+  method: 'GET',
+  dataType: 'json',
+  success: function(data) {
+    console.log(data);
+  },
+  error: function(error) {
+    console.log(error)
+  }
+})
+
+fetch('https://randomuser.me/api/')
+.then(function(response) {
+  // console.log(response)
+  return response.json()
+})
+.then(function(user){
+  console.log('user', user.results[0].name.first)
+})
+.catch(function (error) {
+  console.log(error)
+})
