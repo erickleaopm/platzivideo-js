@@ -1,7 +1,7 @@
 console.log('hola mundo!');
-const noCambia = "Leonidas";
+const noCambia = "Erick";
 
-let cambia = "@LeonidasEsteban"
+let cambia = "@erickleaopm"
 
 function cambiarNombre(nuevoNombre) {
   cambia = nuevoNombre
@@ -86,7 +86,7 @@ fetch('https://randomuser.me/api/')
 (async function load() {
   // await
   // action
-  // terror
+  // drama
   // animation
   async function getData(url) {
     const response = await fetch(url)
@@ -94,10 +94,27 @@ fetch('https://randomuser.me/api/')
     return data
   }
   const actionList =  await getData('https://yts.am/api/v2/list_movies.json?genre=action')
-  const terrorList =  await getData('https://yts.am/api/v2/list_movies.json?genre=terror')
+  const dramaList =  await getData('https://yts.am/api/v2/list_movies.json?genre=drama')
   const animationList =  await getData('https://yts.am/api/v2/list_movies.json?genre=animation')
-  console.log('actionList', actionList)
-  console.log('terrorList', terrorList)
-  console.log('animationList', animationList)
+  console.log(actionList, dramaList, animationList)
+
+  // Containers
+  const $actionContainer = document.querySelector('#action')
+  const $dramaContainer = document.getElementById('drama')
+  const $animationContainer = document.getElementById('animation')
+
+  const $featuringContainer = document.getElementById('featuring')
+  const $form = document.getElementById('form')
+  const $home = document.getElementById('home')
+
+  // const $home = $('.home .list #item')
+  const $modal = document.getElementById('modal')
+  const $overlay = document.getElementById('overlay')
+  const $hideModal = document.getElementById('hide-modal')
+
+  // Se busca dentro de modal
+  const $modalTitle = $modal.querySelector('#modal h1')
+  const $modalImage = $modal.querySelector('#modal img')
+  const $modalDescription = $modal.querySelector('#modal p')
 })()
 
