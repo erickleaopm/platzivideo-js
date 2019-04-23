@@ -85,9 +85,6 @@ fetch('https://randomuser.me/api/')
 
 (async function load() {
   // await
-  // action
-  // drama
-  // animation
   async function getData(url) {
     const response = await fetch(url)
     const data = await response.json()
@@ -114,6 +111,12 @@ fetch('https://randomuser.me/api/')
     return html.body.children[0]
   }
 
+  function addEventClick($element) {
+    $element.addEventListener('click', () => {
+      alert('click')
+    })
+  }
+
   function renderMovieList(list, $container) {
     //actionList.data.movies
     $container.children[0].remove()
@@ -121,8 +124,14 @@ fetch('https://randomuser.me/api/')
       const HTMLString = videoItemTemplate(movie)
       const movieElement = createTemplate(HTMLString)
       $container.append(movieElement)
+      addEventClick(movieElement)
     })
   }
+
+  const $form = document.getElementById('form')
+  $form.addEventListener('submit', (event) => {
+    event.preventDefault()
+  })
 
   // GET List of Movies
   const actionList =  await getData('https://yts.am/api/v2/list_movies.json?genre=action')
@@ -140,7 +149,7 @@ fetch('https://randomuser.me/api/')
   renderMovieList(animationList.data.movies, $animationContainer)
 
   const $featuringContainer = document.getElementById('featuring')
-  const $form = document.getElementById('form')
+  
   const $home = document.getElementById('home')
 
   // const $home = $('.home .list #item')
@@ -153,6 +162,5 @@ fetch('https://randomuser.me/api/')
   const $modalImage = $modal.querySelector('#modal img')
   const $modalDescription = $modal.querySelector('#modal p')
 
-  //console.log(videoItemTemplate('src/images/covers/bitcoin.jpg', 'Bitcoins'))
 })()
 
