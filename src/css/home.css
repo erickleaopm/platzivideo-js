@@ -116,6 +116,7 @@ body {
 
 .playlistFriends-item span {
   display: inline-block;
+  text-transform: capitalize;
 }
 
 
@@ -159,6 +160,7 @@ body {
   align-items: center;
   font-weight: 300;
   margin: 0;
+  text-transform: capitalize;
 }
 .user img {
   width: 45px;
